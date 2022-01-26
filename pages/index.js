@@ -19,39 +19,7 @@ export default function Home({ posts }) {
             <Header />
 
             <Main>
-                <div>
-                    <h1>
-                        <a
-                            href="https://twitter.com/kasperaamodt"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Kasper Aamodt
-                        </a>
-                    </h1>
-                    <h2 style={{ marginBottom: "5px" }}>
-                        Developer at{" "}
-                        <a
-                            href="https://brainify.no"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Brainify
-                        </a>
-                        &nbsp;&{" "}
-                        <a
-                            href="https://aamodtgroup.com"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            AG
-                        </a>
-                    </h2>
-                    <p>Blogging about stuff, mostly tech.</p>
-                </div>
-
                 <div className="post-div">
-                    <h2 style={{ marginBottom: "1rem" }}>Blog</h2>
                     <PostGrid posts={posts} />
                 </div>
                 <div style={{ textAlign: "center", paddingTop: "12px" }}>

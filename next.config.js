@@ -1,7 +1,7 @@
 module.exports = {
     reactStrictMode: true,
     images: {
-        domains: ["wp.aamodt.xyz", "wp.aamodtgroup.com", "localhost"]
+        domains: ["wp.brainify.dev", "jholmedahl.files.wordpress.com", "localhost"]
     },
     webpack: (config, { dev, isServer }) => {
         // Replace React with Preact only in client production build

@@ -30,7 +30,7 @@ export default function Blog({ blog, blogs }) {
 
     const replaceImage = {
         replace: ({ name, attribs, children }) => {
-            if (name === "figure" && /wp-block-image/.test(attribs.class)) {
+            if (name === "figure" && (/wp-block-image/.test(attribs.class) || /wp-caption/.test(attribs.class))) {
                 return <>{domToReact(children, replaceImage)}</>;
             }
 
@@ -58,18 +58,6 @@ export default function Blog({ blog, blogs }) {
                         <meta
                             content={makeExcerpt(blog.excerpt)}
                             name="description"
-                        />
-                        <meta
-                            property="twitter:image"
-                            content={blog.seo.twitterImage ? blog.seo.twitterImage.mediaItemUrl : null}
-                        />
-                        <meta
-                            name="twitter:card"
-                            content="summary_large_image"
-                        />
-                        <meta
-                            name="twitter:title"
-                            content={blog.title + " - Kasper Aamodt"}
                         />
                     </Head>
 
@@ -217,6 +205,11 @@ const Main = styled("div")`
                 white-space: normal;
             }
         }
+    }
+
+    figcaption {
+        margin: 0;
+        text-align: center;
     }
 `;
 
