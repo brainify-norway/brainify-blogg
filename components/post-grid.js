@@ -1,51 +1,55 @@
 import { styled } from "goober";
-import { formatDate, metaDescription, removeTags } from "../utils/functions";
+import { formatDate } from "../utils/functions";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function PostGrid({ posts }) {
-    function makeExcerpt(desc) {
-        var excerpt = removeTags(desc);
-        return excerpt;
-    }
     return (
         <>
-            {posts.map(({ node }) => {
-                return (
-                    <Card key={node.slug}>
-                        <h3>{node.title}</h3>
-                        {node.featuredImage && (
-                            <Image
-                                src={node.featuredImage.node.sourceUrl}
-                                height={
-                                    node.featuredImage.node.mediaDetails.height
-                                }
-                                width={
-                                    node.featuredImage.node.mediaDetails.width
-                                }
-                                alt="Hero image"
-                                priority
-                            />
-                        )}
-                        <p>{makeExcerpt(node.excerpt)}</p>
-                        <span>{formatDate(node.date)}</span>
-                        <Link href={`/blog/` + node.slug} passHref>
-                            <a aria-label={node.title}></a>
-                        </Link>
-                    </Card>
-                );
-            })}
+            <h3>Kategorier</h3>
+            <Buttons>
+                <Button>Meninger</Button>
+                <Button>Inspirasjon</Button>
+            </Buttons>
+            <Grid>
+                {posts.map(({ node }) => {
+                    return (
+                        <Card key={node.slug}>
+                            {node.featuredImage && (
+                                <Image
+                                    src={node.featuredImage.node.sourceUrl}
+                                    height={250}
+                                    width={350}
+                                    alt="Hero image"
+                                    priority
+                                />
+                            )}
+                            <div className="content">
+                                <h3>{node.title}</h3>
+                                <span>{formatDate(node.date)}</span>
+                            </div>
+                            <Link href={`/blog/` + node.slug} passHref>
+                                <a aria-label={node.title}></a>
+                            </Link>
+                        </Card>
+                    );
+                })}
+            </Grid>
         </>
     );
 }
 
+const Grid = styled("div")`
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+`;
+
 const Card = styled("div")`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     position: relative;
-    padding: 20px 0;
-    gap: 10px;
+    background-color: var(--background2);
+    overflow: hidden;
+    border-radius: 5px;
 
     a {
         position: absolute;
@@ -59,6 +63,26 @@ const Card = styled("div")`
     }
 
     img {
-        border-radius: 5px;
+        height: 150px;
+        object-fit: cover;
     }
+
+    .content {
+        padding: 10px;
+    }
+`;
+
+const Buttons = styled("div")`
+    display: flex;
+    gap: 24px;
+    margin: 12px 0 24px 0;
+`;
+
+const Button = styled("div")`
+    background-color: transparent;
+    padding: 5px 15px;
+    border: 1px solid;
+    border-radius: 5px;
+    width: auto;
+    cursor: pointer;
 `;

@@ -16,7 +16,7 @@ export default function Header() {
 
 const Wrapper = styled("div")`
     width: 100%;
-    max-width: 700px;
+    max-width: 1122px;
     margin: 0 auto;
     padding: 0 15px;
     display: flex;

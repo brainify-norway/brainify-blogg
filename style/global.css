@@ -52,15 +52,17 @@ h6 {
 
 :root {
     /* Your default theme */
-    --background: #fff;
+    --background: #f1f4f6;
     --foreground: #000;
     --mode: rgba(234, 234, 234, 1);
+    --background2: #fff;
 }
 
 [data-theme="dark"] {
     --background: #121212;
     --foreground: #fff;
     --mode: rgba(68, 68, 68, 1);
+    --background2: #000;
 }
 
 body {
