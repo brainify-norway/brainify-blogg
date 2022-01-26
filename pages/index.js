@@ -22,10 +22,10 @@ export default function Home({ posts }) {
     return (
         <>
             <Head>
-                <title>Kasper Aamodt - Founder, Developer, writer.</title>
+                <title>Brainify blogg</title>
                 <meta
                     name="description"
-                    content="Founder, developer and writer."
+                    content="Brainify blogg"
                 />
             </Head>
 
