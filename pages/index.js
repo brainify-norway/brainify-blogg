@@ -19,7 +19,7 @@ export default function Home({ posts }) {
             <Header />
 
             <Main>
-                <div className="post-div">
+                <div>
                     <PostGrid posts={posts} />
                 </div>
                 <div style={{ textAlign: "center", paddingTop: "12px" }}>
@@ -46,8 +46,4 @@ const Main = styled("div")`
     margin: 0 auto;
     padding: 0 15px;
     padding-bottom: 2rem;
-
-    .post-div {
-        margin-top: 4rem;
-    }
 `;
